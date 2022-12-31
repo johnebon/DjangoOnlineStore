@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Радиодетали{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Printed circuit boards (PCB)</h1>
+      <p>We can make printed circuit boards for you...</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+    </div>
+</div>
+<div class="container-xl">
+	<div class="row">
+		<div class="col-md-12">
+			<h2><b>Best Products</b></h2>
+			<div class="components-row">
+				<div class="item active">
+					<div class="row">
+                        {% for product in object_list %}
+                            <div class="col-12 col-lg-3" style="margin-bottom: 30px;">
+                                <div class="thumb-wrapper card">
+                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                                    <div class="img-box">
+                                        <img src="{{ product.image.url }}" class="img-fluid" alt=" ">	
+                                    </div>
+                                    <div class="thumb-content">
+                                        <a href="{% url 'detail' product.id %}"><h4 class="product-name">{{ product.name }}</h4></a>
+                                        <div class="star-rating">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                            </ul>
+                                        </div>
+                                        <p class="item-price">
+                                            <b>${{ product.price }}</b>
+                                        </p>
+                                        <a href="#" class="btn btn-primary to-cart">Add to Cart</a>
+                                    </div>						
+                                </div>
+                            </div>
+                        {% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="{% static 'shop/js/script.js' %}"></script>
+{% endblock %}

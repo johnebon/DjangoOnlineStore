@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Радиодетали{% endblock %}
+{% block content %}
+<div class="container-xl">
+    <div class="product mt-4">
+        <a href="{% url 'detail' product.id %}"><h4 class="product-name text-center mb-4">{{ product.name }}</h4></a>
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="img-box">
+                <img src="{{ product.image.url }}" class="img-fluid" alt=" " width="400px" height="auto">	
+            </div>
+            <div class="thumb-content" style="width: 250px;">
+                <div class="star-rating">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                    </ul>
+                </div>
+                <device class="item-price">
+                    <b>${{ product.price }}</b>
+                </device>
+                <div class="actions d-flex align-items-center justify-content-between">
+                    <a href="#" class="btn btn-primary to-cart">Add to Cart</a>
+                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                </div>
+            </div>			
+        </div>			
+    </div>
+</div>
+<style>
+    .thumb-content .btn {
+        color: #7ac400;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background: none;
+        border: 1px solid #7ac400;
+        padding: 18px 42px;
+        margin-top: 5px;
+        line-height: 16px;
+        border-radius: 60px;
+    }
+    .thumb-content .btn:hover {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+    .wish-icon {
+        cursor: pointer;
+        font-size: 45px;
+        color: #abb0b8;
+    }
+    .wish-icon .fa-heart {
+        color: #ff6161;
+    }
+    .star-rating li {
+        padding: 0;
+        cursor: pointer;
+    }
+    .star-rating i {
+        font-size: 20px;
+        color: #ffc000;
+        cursor: pointer;
+    }
+    .item-price {
+        font-size: 35px;
+    }
+</style>
+<script src="{% static 'shop/js/script.js' %}"></script>
+{% endblock %}
