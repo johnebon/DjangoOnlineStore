@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Радиодетали{% endblock %}
+{% block content %}
+<div class="container-xl">
+	<div class="row">
+		<div class="col-md-12">
+			<h2><b>Login</b></h2>
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            {% endif %}
+            <form method="post" class="d-flex flex-column justify-content-center">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input name="username" type="username" style="height: 45px;" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input name="password" type="password" style="height: 45px;" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <input type="submit" value="Log In" class="btn w-25 mx-auto" />
+            </form>
+        </div>
+	</div>
+</div>
+<style>
+    .btn {
+        background: none;
+        border: 1px solid #7ac400;
+        color: #7ac400;
+    }
+
+    .btn:hover {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+    .form-control {
+        border: 1px solid #7ac400;
+    }
+</style>
+{% endblock %}

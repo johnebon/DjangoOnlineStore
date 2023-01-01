@@ -11,3 +11,17 @@ class IndexPage(ListView):
 class DetailPage(DetailView):
     template_name = 'shop/detail.html'
     model = Product
+    
+
+class SearchView(ListView):
+    """ Search Products """
+    
+    template_name = 'shop/search.html'
+    
+    def get_queryset(self):
+        return Product.objects.filter(name__icontains = self.request.GET.get('q'))
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
