@@ -10,3 +10,19 @@
 //     }
 //     to_cart_btn[i].addEventListener('click', change);
 // }
+
+$(document).ready(function(){
+    $(".wish-icon i").click(function(){
+        $(this).toggleClass("fa-regular fa-solid");
+    });
+});	
+
+$(document).ready(function(){
+    $(".add-to-cart").click(function(){
+        if ($(this).text() == 'Add to Cart') {
+            $(this).text('Added to Cart');
+        } else {
+            $(this).text('Add to Cart');
+        }
+    });
+});	
