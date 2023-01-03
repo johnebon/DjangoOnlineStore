@@ -150,23 +150,20 @@
             border: 1px solid #7ac400;
             color: #7ac400;
         }
-
         .search-btn:hover {
             color: #fff;
             background: #7ac400;
             box-shadow: none;
         }
-
         .search-field {
             border: 1px solid #7ac400;
         }
-        .btn {
+        .register-btn, .login-btn, .learn-more-btn {
             background: none;
             border: 1px solid #7ac400;
             color: #7ac400;
         }
-
-        .btn:hover, .btn:active {
+        .register-btn:hover, .login-btn:hover, .learn-more-btn:hover, .register-btn:active, .login-btn:active, .learn-more-btn:active {
             color: #fff;
             background: #7ac400;
             box-shadow: none;
@@ -206,15 +203,15 @@
             </form>
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-circle-user"></i></a>
+                    <li>
+                        <a href="{% url 'profile' %}"><i class="fa-solid fa-circle-user"></i></a>
                     </li>
                 {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link btn" href="{% url 'login' %}">Login</a>
+                    <li class="mr-2">
+                        <a class="btn login-btn" href="{% url 'login' %}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn" href="#">Register</a>
+                    <li>
+                        <a class="btn register-btn" href="{% url 'register' %}">Register</a>
                     </li>
                 {% endif %}
             </ul>
